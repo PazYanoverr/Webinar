@@ -112,11 +112,5 @@
     "resource": "Company",
     "action": "delete:any",
     "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Company",
-    "action": "read:any",
-    "attributes": "*"
   }
 ]
