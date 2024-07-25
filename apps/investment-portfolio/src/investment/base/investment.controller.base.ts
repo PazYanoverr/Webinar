@@ -41,8 +41,9 @@ export class InvestmentControllerBase {
           : undefined,
       },
       select: {
-        createdAt: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
 
         investor: {
           select: {
@@ -50,9 +51,8 @@ export class InvestmentControllerBase {
           },
         },
 
-        quantity: true,
         stockId: true,
-        updatedAt: true,
+        quantity: true,
         value: true,
       },
     });
@@ -66,8 +66,9 @@ export class InvestmentControllerBase {
     return this.service.investments({
       ...args,
       select: {
-        createdAt: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
 
         investor: {
           select: {
@@ -75,9 +76,8 @@ export class InvestmentControllerBase {
           },
         },
 
-        quantity: true,
         stockId: true,
-        updatedAt: true,
+        quantity: true,
         value: true,
       },
     });
@@ -92,8 +92,9 @@ export class InvestmentControllerBase {
     const result = await this.service.investment({
       where: params,
       select: {
-        createdAt: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
 
         investor: {
           select: {
@@ -101,9 +102,8 @@ export class InvestmentControllerBase {
           },
         },
 
-        quantity: true,
         stockId: true,
-        updatedAt: true,
+        quantity: true,
         value: true,
       },
     });
@@ -135,8 +135,9 @@ export class InvestmentControllerBase {
             : undefined,
         },
         select: {
-          createdAt: true,
           id: true,
+          createdAt: true,
+          updatedAt: true,
 
           investor: {
             select: {
@@ -144,9 +145,8 @@ export class InvestmentControllerBase {
             },
           },
 
-          quantity: true,
           stockId: true,
-          updatedAt: true,
+          quantity: true,
           value: true,
         },
       });
@@ -170,8 +170,9 @@ export class InvestmentControllerBase {
       return await this.service.deleteInvestment({
         where: params,
         select: {
-          createdAt: true,
           id: true,
+          createdAt: true,
+          updatedAt: true,
 
           investor: {
             select: {
@@ -179,9 +180,8 @@ export class InvestmentControllerBase {
             },
           },
 
-          quantity: true,
           stockId: true,
-          updatedAt: true,
+          quantity: true,
           value: true,
         },
       });

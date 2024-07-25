@@ -1,11 +1,11 @@
 import { SortOrder } from "../../util/SortOrder";
 
 export type InvestmentOrderByInput = {
-  createdAt?: SortOrder;
   id?: SortOrder;
-  investorId?: SortOrder;
-  quantity?: SortOrder;
-  stockId?: SortOrder;
+  createdAt?: SortOrder;
   updatedAt?: SortOrder;
+  investorId?: SortOrder;
+  stockId?: SortOrder;
+  quantity?: SortOrder;
   value?: SortOrder;
 };

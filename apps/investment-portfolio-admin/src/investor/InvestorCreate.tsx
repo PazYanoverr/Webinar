@@ -15,6 +15,7 @@ export const InvestorCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
+        <TextInput label="Name" source="name" />
         <TextInput label="Address" multiline source="address" />
         <TextInput label="Bank Account" source="bankAccount" />
         <ReferenceArrayInput
@@ -25,7 +26,6 @@ export const InvestorCreate = (props: CreateProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={InvestmentTitle} />
         </ReferenceArrayInput>
-        <TextInput label="Name" source="name" />
       </SimpleForm>
     </Create>
   );

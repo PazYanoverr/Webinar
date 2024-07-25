@@ -15,8 +15,11 @@ import { InvestorWhereUniqueInput } from "../../investor/base/InvestorWhereUniqu
 import {
   ValidateNested,
   IsOptional,
-  IsInt,
   IsString,
+  MaxLength,
+  IsInt,
+  Min,
+  Max,
   IsNumber,
 } from "class-validator";
 import { Type } from "class-transformer";
@@ -38,20 +41,10 @@ class InvestmentCreateInput {
 
   @ApiProperty({
     required: false,
-    type: Number,
-  })
-  @IsInt()
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  quantity?: number | null;
-
-  @ApiProperty({
-    required: false,
     type: String,
   })
   @IsString()
+  @MaxLength(1000)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -62,7 +55,21 @@ class InvestmentCreateInput {
     required: false,
     type: Number,
   })
+  @IsInt()
+  @Min(-999999999)
+  @Max(999999999)
+  @IsOptional()
+  @Field(() => Number, {
+    nullable: true,
+  })
+  quantity?: number | null;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
   @IsNumber()
+  @Max(99999999999)
   @IsOptional()
   @Field(() => Float, {
     nullable: true,

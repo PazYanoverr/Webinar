@@ -12,12 +12,12 @@ export const InvestorList = (props: ListProps): React.ReactElement => {
       pagination={<Pagination />}
     >
       <Datagrid rowClick="show">
+        <TextField label="ID" source="id" />
+        <DateField source="createdAt" label="Created At" />
+        <DateField source="updatedAt" label="Updated At" />
+        <TextField label="Name" source="name" />
         <TextField label="Address" source="address" />
         <TextField label="Bank Account" source="bankAccount" />
-        <DateField source="createdAt" label="Created At" />
-        <TextField label="ID" source="id" />
-        <TextField label="Name" source="name" />
-        <DateField source="updatedAt" label="Updated At" />
       </Datagrid>
     </List>
   );

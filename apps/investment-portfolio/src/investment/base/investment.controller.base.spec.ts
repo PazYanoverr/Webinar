@@ -18,37 +18,37 @@ import { InvestmentService } from "../investment.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
-  createdAt: new Date(),
   id: "exampleId",
-  quantity: 42,
-  stockId: "exampleStockId",
+  createdAt: new Date(),
   updatedAt: new Date(),
+  stockId: "exampleStockId",
+  quantity: 42,
   value: 42.424242424,
 };
 const CREATE_RESULT = {
-  createdAt: new Date(),
   id: "exampleId",
-  quantity: 42,
-  stockId: "exampleStockId",
+  createdAt: new Date(),
   updatedAt: new Date(),
+  stockId: "exampleStockId",
+  quantity: 42,
   value: 42.424242424,
 };
 const FIND_MANY_RESULT = [
   {
-    createdAt: new Date(),
     id: "exampleId",
-    quantity: 42,
-    stockId: "exampleStockId",
+    createdAt: new Date(),
     updatedAt: new Date(),
+    stockId: "exampleStockId",
+    quantity: 42,
     value: 42.424242424,
   },
 ];
 const FIND_ONE_RESULT = {
-  createdAt: new Date(),
   id: "exampleId",
-  quantity: 42,
-  stockId: "exampleStockId",
+  createdAt: new Date(),
   updatedAt: new Date(),
+  stockId: "exampleStockId",
+  quantity: 42,
   value: 42.424242424,
 };
 

@@ -36,12 +36,12 @@ export class InvestorControllerBase {
     return await this.service.createInvestor({
       data: data,
       select: {
+        id: true,
+        createdAt: true,
+        updatedAt: true,
+        name: true,
         address: true,
         bankAccount: true,
-        createdAt: true,
-        id: true,
-        name: true,
-        updatedAt: true,
       },
     });
   }
@@ -54,12 +54,12 @@ export class InvestorControllerBase {
     return this.service.investors({
       ...args,
       select: {
+        id: true,
+        createdAt: true,
+        updatedAt: true,
+        name: true,
         address: true,
         bankAccount: true,
-        createdAt: true,
-        id: true,
-        name: true,
-        updatedAt: true,
       },
     });
   }
@@ -73,12 +73,12 @@ export class InvestorControllerBase {
     const result = await this.service.investor({
       where: params,
       select: {
+        id: true,
+        createdAt: true,
+        updatedAt: true,
+        name: true,
         address: true,
         bankAccount: true,
-        createdAt: true,
-        id: true,
-        name: true,
-        updatedAt: true,
       },
     });
     if (result === null) {
@@ -101,12 +101,12 @@ export class InvestorControllerBase {
         where: params,
         data: data,
         select: {
+          id: true,
+          createdAt: true,
+          updatedAt: true,
+          name: true,
           address: true,
           bankAccount: true,
-          createdAt: true,
-          id: true,
-          name: true,
-          updatedAt: true,
         },
       });
     } catch (error) {
@@ -129,12 +129,12 @@ export class InvestorControllerBase {
       return await this.service.deleteInvestor({
         where: params,
         select: {
+          id: true,
+          createdAt: true,
+          updatedAt: true,
+          name: true,
           address: true,
           bankAccount: true,
-          createdAt: true,
-          id: true,
-          name: true,
-          updatedAt: true,
         },
       });
     } catch (error) {
@@ -157,8 +157,9 @@ export class InvestorControllerBase {
     const results = await this.service.findInvestments(params.id, {
       ...query,
       select: {
-        createdAt: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
 
         investor: {
           select: {
@@ -166,9 +167,8 @@ export class InvestorControllerBase {
           },
         },
 
-        quantity: true,
         stockId: true,
-        updatedAt: true,
+        quantity: true,
         value: true,
       },
     });
