@@ -26,8 +26,8 @@ import { StockFindUniqueArgs } from "./StockFindUniqueArgs";
 import { CreateStockArgs } from "./CreateStockArgs";
 import { UpdateStockArgs } from "./UpdateStockArgs";
 import { DeleteStockArgs } from "./DeleteStockArgs";
-import { Company } from "../../company/base/Company";
 import { Exchange } from "../../exchange/base/Exchange";
+import { Company } from "../../company/base/Company";
 import { StockService } from "../stock.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => Stock)
@@ -93,15 +93,15 @@ export class StockResolverBase {
       data: {
         ...args.data,
 
-        company: args.data.company
-          ? {
-              connect: args.data.company,
-            }
-          : undefined,
-
         exchange: args.data.exchange
           ? {
               connect: args.data.exchange,
+            }
+          : undefined,
+
+        company: args.data.company
+          ? {
+              connect: args.data.company,
             }
           : undefined,
       },
@@ -124,15 +124,15 @@ export class StockResolverBase {
         data: {
           ...args.data,
 
-          company: args.data.company
-            ? {
-                connect: args.data.company,
-              }
-            : undefined,
-
           exchange: args.data.exchange
             ? {
                 connect: args.data.exchange,
+              }
+            : undefined,
+
+          company: args.data.company
+            ? {
+                connect: args.data.company,
               }
             : undefined,
         },
@@ -169,25 +169,6 @@ export class StockResolverBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => Company, {
-    nullable: true,
-    name: "company",
-  })
-  @nestAccessControl.UseRoles({
-    resource: "Company",
-    action: "read",
-    possession: "any",
-  })
-  async getCompany(@graphql.Parent() parent: Stock): Promise<Company | null> {
-    const result = await this.service.getCompany(parent.id);
-
-    if (!result) {
-      return null;
-    }
-    return result;
-  }
-
-  @common.UseInterceptors(AclFilterResponseInterceptor)
   @graphql.ResolveField(() => Exchange, {
     nullable: true,
     name: "exchange",
@@ -199,6 +180,25 @@ export class StockResolverBase {
   })
   async getExchange(@graphql.Parent() parent: Stock): Promise<Exchange | null> {
     const result = await this.service.getExchange(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => Company, {
+    nullable: true,
+    name: "company",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "Company",
+    action: "read",
+    possession: "any",
+  })
+  async getCompany(@graphql.Parent() parent: Stock): Promise<Company | null> {
+    const result = await this.service.getCompany(parent.id);
 
     if (!result) {
       return null;

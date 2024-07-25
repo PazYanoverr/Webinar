@@ -14,8 +14,8 @@ import { PrismaService } from "../../prisma/prisma.service";
 import {
   Prisma,
   Stock as PrismaStock,
-  Company as PrismaCompany,
   Exchange as PrismaExchange,
+  Company as PrismaCompany,
 } from "@prisma/client";
 
 export class StockServiceBase {
@@ -25,38 +25,20 @@ export class StockServiceBase {
     return this.prisma.stock.count(args);
   }
 
-  async stocks<T extends Prisma.StockFindManyArgs>(
-    args: Prisma.SelectSubset<T, Prisma.StockFindManyArgs>
-  ): Promise<PrismaStock[]> {
-    return this.prisma.stock.findMany<Prisma.StockFindManyArgs>(args);
+  async stocks(args: Prisma.StockFindManyArgs): Promise<PrismaStock[]> {
+    return this.prisma.stock.findMany(args);
   }
-  async stock<T extends Prisma.StockFindUniqueArgs>(
-    args: Prisma.SelectSubset<T, Prisma.StockFindUniqueArgs>
-  ): Promise<PrismaStock | null> {
+  async stock(args: Prisma.StockFindUniqueArgs): Promise<PrismaStock | null> {
     return this.prisma.stock.findUnique(args);
   }
-  async createStock<T extends Prisma.StockCreateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.StockCreateArgs>
-  ): Promise<PrismaStock> {
-    return this.prisma.stock.create<T>(args);
+  async createStock(args: Prisma.StockCreateArgs): Promise<PrismaStock> {
+    return this.prisma.stock.create(args);
   }
-  async updateStock<T extends Prisma.StockUpdateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.StockUpdateArgs>
-  ): Promise<PrismaStock> {
-    return this.prisma.stock.update<T>(args);
+  async updateStock(args: Prisma.StockUpdateArgs): Promise<PrismaStock> {
+    return this.prisma.stock.update(args);
   }
-  async deleteStock<T extends Prisma.StockDeleteArgs>(
-    args: Prisma.SelectSubset<T, Prisma.StockDeleteArgs>
-  ): Promise<PrismaStock> {
+  async deleteStock(args: Prisma.StockDeleteArgs): Promise<PrismaStock> {
     return this.prisma.stock.delete(args);
-  }
-
-  async getCompany(parentId: string): Promise<PrismaCompany | null> {
-    return this.prisma.stock
-      .findUnique({
-        where: { id: parentId },
-      })
-      .company();
   }
 
   async getExchange(parentId: string): Promise<PrismaExchange | null> {
@@ -65,5 +47,13 @@ export class StockServiceBase {
         where: { id: parentId },
       })
       .exchange();
+  }
+
+  async getCompany(parentId: string): Promise<PrismaCompany | null> {
+    return this.prisma.stock
+      .findUnique({
+        where: { id: parentId },
+      })
+      .company();
   }
 }

@@ -50,26 +50,22 @@ export class StockControllerBase {
       data: {
         ...data,
 
-        company: data.company
-          ? {
-              connect: data.company,
-            }
-          : undefined,
-
         exchange: data.exchange
           ? {
               connect: data.exchange,
             }
           : undefined,
+
+        company: data.company
+          ? {
+              connect: data.company,
+            }
+          : undefined,
       },
       select: {
-        company: {
-          select: {
-            id: true,
-          },
-        },
-
+        id: true,
         createdAt: true,
+        updatedAt: true,
 
         exchange: {
           select: {
@@ -77,11 +73,15 @@ export class StockControllerBase {
           },
         },
 
-        id: true,
-        sharePrice: true,
         tickerSymbol: true,
+        sharePrice: true,
         totalShares: true,
-        updatedAt: true,
+
+        company: {
+          select: {
+            id: true,
+          },
+        },
       },
     });
   }
@@ -103,13 +103,9 @@ export class StockControllerBase {
     return this.service.stocks({
       ...args,
       select: {
-        company: {
-          select: {
-            id: true,
-          },
-        },
-
+        id: true,
         createdAt: true,
+        updatedAt: true,
 
         exchange: {
           select: {
@@ -117,11 +113,15 @@ export class StockControllerBase {
           },
         },
 
-        id: true,
-        sharePrice: true,
         tickerSymbol: true,
+        sharePrice: true,
         totalShares: true,
-        updatedAt: true,
+
+        company: {
+          select: {
+            id: true,
+          },
+        },
       },
     });
   }
@@ -144,13 +144,9 @@ export class StockControllerBase {
     const result = await this.service.stock({
       where: params,
       select: {
-        company: {
-          select: {
-            id: true,
-          },
-        },
-
+        id: true,
         createdAt: true,
+        updatedAt: true,
 
         exchange: {
           select: {
@@ -158,11 +154,15 @@ export class StockControllerBase {
           },
         },
 
-        id: true,
-        sharePrice: true,
         tickerSymbol: true,
+        sharePrice: true,
         totalShares: true,
-        updatedAt: true,
+
+        company: {
+          select: {
+            id: true,
+          },
+        },
       },
     });
     if (result === null) {
@@ -195,26 +195,22 @@ export class StockControllerBase {
         data: {
           ...data,
 
-          company: data.company
-            ? {
-                connect: data.company,
-              }
-            : undefined,
-
           exchange: data.exchange
             ? {
                 connect: data.exchange,
               }
             : undefined,
+
+          company: data.company
+            ? {
+                connect: data.company,
+              }
+            : undefined,
         },
         select: {
-          company: {
-            select: {
-              id: true,
-            },
-          },
-
+          id: true,
           createdAt: true,
+          updatedAt: true,
 
           exchange: {
             select: {
@@ -222,11 +218,15 @@ export class StockControllerBase {
             },
           },
 
-          id: true,
-          sharePrice: true,
           tickerSymbol: true,
+          sharePrice: true,
           totalShares: true,
-          updatedAt: true,
+
+          company: {
+            select: {
+              id: true,
+            },
+          },
         },
       });
     } catch (error) {
@@ -257,13 +257,9 @@ export class StockControllerBase {
       return await this.service.deleteStock({
         where: params,
         select: {
-          company: {
-            select: {
-              id: true,
-            },
-          },
-
+          id: true,
           createdAt: true,
+          updatedAt: true,
 
           exchange: {
             select: {
@@ -271,11 +267,15 @@ export class StockControllerBase {
             },
           },
 
-          id: true,
-          sharePrice: true,
           tickerSymbol: true,
+          sharePrice: true,
           totalShares: true,
-          updatedAt: true,
+
+          company: {
+            select: {
+              id: true,
+            },
+          },
         },
       });
     } catch (error) {

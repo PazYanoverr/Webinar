@@ -18,34 +18,34 @@ import { ExchangeService } from "../exchange.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
-  address: "exampleAddress",
-  createdAt: new Date(),
   id: "exampleId",
-  name: "exampleName",
+  createdAt: new Date(),
   updatedAt: new Date(),
+  address: "exampleAddress",
+  name: "exampleName",
 };
 const CREATE_RESULT = {
-  address: "exampleAddress",
-  createdAt: new Date(),
   id: "exampleId",
-  name: "exampleName",
+  createdAt: new Date(),
   updatedAt: new Date(),
+  address: "exampleAddress",
+  name: "exampleName",
 };
 const FIND_MANY_RESULT = [
   {
-    address: "exampleAddress",
-    createdAt: new Date(),
     id: "exampleId",
-    name: "exampleName",
+    createdAt: new Date(),
     updatedAt: new Date(),
+    address: "exampleAddress",
+    name: "exampleName",
   },
 ];
 const FIND_ONE_RESULT = {
-  address: "exampleAddress",
-  createdAt: new Date(),
   id: "exampleId",
-  name: "exampleName",
+  createdAt: new Date(),
   updatedAt: new Date(),
+  address: "exampleAddress",
+  name: "exampleName",
 };
 
 const service = {

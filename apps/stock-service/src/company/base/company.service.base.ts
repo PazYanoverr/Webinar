@@ -25,29 +25,21 @@ export class CompanyServiceBase {
     return this.prisma.company.count(args);
   }
 
-  async companies<T extends Prisma.CompanyFindManyArgs>(
-    args: Prisma.SelectSubset<T, Prisma.CompanyFindManyArgs>
-  ): Promise<PrismaCompany[]> {
-    return this.prisma.company.findMany<Prisma.CompanyFindManyArgs>(args);
+  async companies(args: Prisma.CompanyFindManyArgs): Promise<PrismaCompany[]> {
+    return this.prisma.company.findMany(args);
   }
-  async company<T extends Prisma.CompanyFindUniqueArgs>(
-    args: Prisma.SelectSubset<T, Prisma.CompanyFindUniqueArgs>
+  async company(
+    args: Prisma.CompanyFindUniqueArgs
   ): Promise<PrismaCompany | null> {
     return this.prisma.company.findUnique(args);
   }
-  async createCompany<T extends Prisma.CompanyCreateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.CompanyCreateArgs>
-  ): Promise<PrismaCompany> {
-    return this.prisma.company.create<T>(args);
+  async createCompany(args: Prisma.CompanyCreateArgs): Promise<PrismaCompany> {
+    return this.prisma.company.create(args);
   }
-  async updateCompany<T extends Prisma.CompanyUpdateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.CompanyUpdateArgs>
-  ): Promise<PrismaCompany> {
-    return this.prisma.company.update<T>(args);
+  async updateCompany(args: Prisma.CompanyUpdateArgs): Promise<PrismaCompany> {
+    return this.prisma.company.update(args);
   }
-  async deleteCompany<T extends Prisma.CompanyDeleteArgs>(
-    args: Prisma.SelectSubset<T, Prisma.CompanyDeleteArgs>
-  ): Promise<PrismaCompany> {
+  async deleteCompany(args: Prisma.CompanyDeleteArgs): Promise<PrismaCompany> {
     return this.prisma.company.delete(args);
   }
 

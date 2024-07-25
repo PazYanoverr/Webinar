@@ -1,11 +1,11 @@
-import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StockListRelationFilter } from "../stock/StockListRelationFilter";
 
 export type CompanyWhereInput = {
-  domain?: StringNullableFilter;
-  headquarters?: StringNullableFilter;
   id?: StringFilter;
   name?: StringNullableFilter;
+  headquarters?: StringNullableFilter;
   stocks?: StockListRelationFilter;
+  domain?: StringNullableFilter;
 };

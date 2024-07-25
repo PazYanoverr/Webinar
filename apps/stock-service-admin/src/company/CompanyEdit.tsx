@@ -15,9 +15,8 @@ export const CompanyEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
-        <TextInput label="Domain" source="domain" />
-        <TextInput label="Headquarters" multiline source="headquarters" />
         <TextInput label="Name" source="name" />
+        <TextInput label="Headquarters" multiline source="headquarters" />
         <ReferenceArrayInput
           source="stocks"
           reference="Stock"
@@ -26,6 +25,7 @@ export const CompanyEdit = (props: EditProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={StockTitle} />
         </ReferenceArrayInput>
+        <TextInput label="Domain" source="domain" />
       </SimpleForm>
     </Edit>
   );

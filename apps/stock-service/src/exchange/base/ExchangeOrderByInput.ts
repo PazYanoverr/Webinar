@@ -28,7 +28,7 @@ class ExchangeOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  address?: SortOrder;
+  id?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -50,7 +50,18 @@ class ExchangeOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  id?: SortOrder;
+  updatedAt?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
+  address?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -62,17 +73,6 @@ class ExchangeOrderByInput {
     nullable: true,
   })
   name?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  updatedAt?: SortOrder;
 }
 
 export { ExchangeOrderByInput as ExchangeOrderByInput };

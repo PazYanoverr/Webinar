@@ -1,8 +1,8 @@
 import { StockUpdateManyWithoutCompaniesInput } from "./StockUpdateManyWithoutCompaniesInput";
 
 export type CompanyUpdateInput = {
-  domain?: string | null;
-  headquarters?: string | null;
   name?: string | null;
+  headquarters?: string | null;
   stocks?: StockUpdateManyWithoutCompaniesInput;
+  domain?: string | null;
 };

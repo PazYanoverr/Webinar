@@ -18,38 +18,38 @@ import { CompanyService } from "../company.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
-  createdAt: new Date(),
-  domain: "exampleDomain",
-  headquarters: "exampleHeadquarters",
   id: "exampleId",
-  name: "exampleName",
+  createdAt: new Date(),
   updatedAt: new Date(),
+  name: "exampleName",
+  headquarters: "exampleHeadquarters",
+  domain: "exampleDomain",
 };
 const CREATE_RESULT = {
-  createdAt: new Date(),
-  domain: "exampleDomain",
-  headquarters: "exampleHeadquarters",
   id: "exampleId",
-  name: "exampleName",
+  createdAt: new Date(),
   updatedAt: new Date(),
+  name: "exampleName",
+  headquarters: "exampleHeadquarters",
+  domain: "exampleDomain",
 };
 const FIND_MANY_RESULT = [
   {
-    createdAt: new Date(),
-    domain: "exampleDomain",
-    headquarters: "exampleHeadquarters",
     id: "exampleId",
-    name: "exampleName",
+    createdAt: new Date(),
     updatedAt: new Date(),
+    name: "exampleName",
+    headquarters: "exampleHeadquarters",
+    domain: "exampleDomain",
   },
 ];
 const FIND_ONE_RESULT = {
-  createdAt: new Date(),
-  domain: "exampleDomain",
-  headquarters: "exampleHeadquarters",
   id: "exampleId",
-  name: "exampleName",
+  createdAt: new Date(),
   updatedAt: new Date(),
+  name: "exampleName",
+  headquarters: "exampleHeadquarters",
+  domain: "exampleDomain",
 };
 
 const service = {

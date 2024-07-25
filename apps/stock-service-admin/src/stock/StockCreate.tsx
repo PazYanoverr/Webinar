@@ -6,20 +6,17 @@ import {
   CreateProps,
   ReferenceInput,
   SelectInput,
-  NumberInput,
   TextInput,
+  NumberInput,
 } from "react-admin";
 
-import { CompanyTitle } from "../company/CompanyTitle";
 import { ExchangeTitle } from "../exchange/ExchangeTitle";
+import { CompanyTitle } from "../company/CompanyTitle";
 
 export const StockCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
-        <ReferenceInput source="company.id" reference="Company" label="Company">
-          <SelectInput optionText={CompanyTitle} />
-        </ReferenceInput>
         <ReferenceInput
           source="exchange.id"
           reference="Exchange"
@@ -27,9 +24,12 @@ export const StockCreate = (props: CreateProps): React.ReactElement => {
         >
           <SelectInput optionText={ExchangeTitle} />
         </ReferenceInput>
-        <NumberInput label="Share Price" source="sharePrice" />
         <TextInput label="Ticker Symbol" source="tickerSymbol" />
+        <NumberInput label="Share Price" source="sharePrice" />
         <NumberInput step={1} label="Total Shares" source="totalShares" />
+        <ReferenceInput source="company.id" reference="Company" label="Company">
+          <SelectInput optionText={CompanyTitle} />
+        </ReferenceInput>
       </SimpleForm>
     </Create>
   );
