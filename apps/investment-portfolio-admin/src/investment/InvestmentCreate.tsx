@@ -6,8 +6,8 @@ import {
   CreateProps,
   ReferenceInput,
   SelectInput,
-  NumberInput,
   TextInput,
+  NumberInput,
 } from "react-admin";
 
 import { InvestorTitle } from "../investor/InvestorTitle";
@@ -23,8 +23,8 @@ export const InvestmentCreate = (props: CreateProps): React.ReactElement => {
         >
           <SelectInput optionText={InvestorTitle} />
         </ReferenceInput>
-        <NumberInput step={1} label="Quantity" source="quantity" />
         <TextInput label="stockId" source="stockId" />
+        <NumberInput step={1} label="Quantity" source="quantity" />
         <NumberInput label="Value" source="value" />
       </SimpleForm>
     </Create>

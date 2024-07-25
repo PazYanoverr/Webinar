@@ -23,28 +23,28 @@ export class InvestorServiceBase {
     return this.prisma.investor.count(args);
   }
 
-  async investors<T extends Prisma.InvestorFindManyArgs>(
-    args: Prisma.SelectSubset<T, Prisma.InvestorFindManyArgs>
+  async investors(
+    args: Prisma.InvestorFindManyArgs
   ): Promise<PrismaInvestor[]> {
-    return this.prisma.investor.findMany<Prisma.InvestorFindManyArgs>(args);
+    return this.prisma.investor.findMany(args);
   }
-  async investor<T extends Prisma.InvestorFindUniqueArgs>(
-    args: Prisma.SelectSubset<T, Prisma.InvestorFindUniqueArgs>
+  async investor(
+    args: Prisma.InvestorFindUniqueArgs
   ): Promise<PrismaInvestor | null> {
     return this.prisma.investor.findUnique(args);
   }
-  async createInvestor<T extends Prisma.InvestorCreateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.InvestorCreateArgs>
+  async createInvestor(
+    args: Prisma.InvestorCreateArgs
   ): Promise<PrismaInvestor> {
-    return this.prisma.investor.create<T>(args);
+    return this.prisma.investor.create(args);
   }
-  async updateInvestor<T extends Prisma.InvestorUpdateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.InvestorUpdateArgs>
+  async updateInvestor(
+    args: Prisma.InvestorUpdateArgs
   ): Promise<PrismaInvestor> {
-    return this.prisma.investor.update<T>(args);
+    return this.prisma.investor.update(args);
   }
-  async deleteInvestor<T extends Prisma.InvestorDeleteArgs>(
-    args: Prisma.SelectSubset<T, Prisma.InvestorDeleteArgs>
+  async deleteInvestor(
+    args: Prisma.InvestorDeleteArgs
   ): Promise<PrismaInvestor> {
     return this.prisma.investor.delete(args);
   }

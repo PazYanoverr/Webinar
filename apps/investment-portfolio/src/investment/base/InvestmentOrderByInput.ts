@@ -28,6 +28,17 @@ class InvestmentOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  id?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   createdAt?: SortOrder;
 
   @ApiProperty({
@@ -39,7 +50,7 @@ class InvestmentOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  id?: SortOrder;
+  updatedAt?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -61,17 +72,6 @@ class InvestmentOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  quantity?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
   stockId?: SortOrder;
 
   @ApiProperty({
@@ -83,7 +83,7 @@ class InvestmentOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  updatedAt?: SortOrder;
+  quantity?: SortOrder;
 
   @ApiProperty({
     required: false,

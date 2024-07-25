@@ -28,18 +28,7 @@ class InvestorOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  address?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  bankAccount?: SortOrder;
+  id?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -61,7 +50,7 @@ class InvestorOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  id?: SortOrder;
+  updatedAt?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -83,7 +72,18 @@ class InvestorOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  updatedAt?: SortOrder;
+  address?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
+  bankAccount?: SortOrder;
 }
 
 export { InvestorOrderByInput as InvestorOrderByInput };
