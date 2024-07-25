@@ -11,31 +11,22 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { CompanyWhereUniqueInput } from "../../company/base/CompanyWhereUniqueInput";
+import { ExchangeWhereUniqueInput } from "../../exchange/base/ExchangeWhereUniqueInput";
 import {
   ValidateNested,
   IsOptional,
-  IsNumber,
   IsString,
+  MaxLength,
+  IsNumber,
+  Min,
+  Max,
   IsInt,
 } from "class-validator";
 import { Type } from "class-transformer";
-import { ExchangeWhereUniqueInput } from "../../exchange/base/ExchangeWhereUniqueInput";
+import { CompanyWhereUniqueInput } from "../../company/base/CompanyWhereUniqueInput";
 
 @InputType()
 class StockUpdateInput {
-  @ApiProperty({
-    required: false,
-    type: () => CompanyWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => CompanyWhereUniqueInput)
-  @IsOptional()
-  @Field(() => CompanyWhereUniqueInput, {
-    nullable: true,
-  })
-  company?: CompanyWhereUniqueInput | null;
-
   @ApiProperty({
     required: false,
     type: () => ExchangeWhereUniqueInput,
@@ -50,20 +41,10 @@ class StockUpdateInput {
 
   @ApiProperty({
     required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  sharePrice?: number | null;
-
-  @ApiProperty({
-    required: false,
     type: String,
   })
   @IsString()
+  @MaxLength(1000)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -74,12 +55,38 @@ class StockUpdateInput {
     required: false,
     type: Number,
   })
+  @IsNumber()
+  @Min(-999999999)
+  @Max(999999999)
+  @IsOptional()
+  @Field(() => Number, {
+    nullable: true,
+  })
+  sharePrice?: number | null;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
   @IsInt()
+  @Max(99999999999)
   @IsOptional()
   @Field(() => Number, {
     nullable: true,
   })
   totalShares?: number | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => CompanyWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CompanyWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CompanyWhereUniqueInput, {
+    nullable: true,
+  })
+  company?: CompanyWhereUniqueInput | null;
 }
 
 export { StockUpdateInput as StockUpdateInput };

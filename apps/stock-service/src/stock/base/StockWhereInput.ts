@@ -11,28 +11,27 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { CompanyWhereUniqueInput } from "../../company/base/CompanyWhereUniqueInput";
-import { ValidateNested, IsOptional } from "class-validator";
-import { Type } from "class-transformer";
-import { ExchangeWhereUniqueInput } from "../../exchange/base/ExchangeWhereUniqueInput";
 import { StringFilter } from "../../util/StringFilter";
-import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { Type } from "class-transformer";
+import { IsOptional, ValidateNested } from "class-validator";
+import { ExchangeWhereUniqueInput } from "../../exchange/base/ExchangeWhereUniqueInput";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
 import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { CompanyWhereUniqueInput } from "../../company/base/CompanyWhereUniqueInput";
 
 @InputType()
 class StockWhereInput {
   @ApiProperty({
     required: false,
-    type: () => CompanyWhereUniqueInput,
+    type: StringFilter,
   })
-  @ValidateNested()
-  @Type(() => CompanyWhereUniqueInput)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => CompanyWhereUniqueInput, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  company?: CompanyWhereUniqueInput;
+  id?: StringFilter;
 
   @ApiProperty({
     required: false,
@@ -48,14 +47,14 @@ class StockWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringFilter,
+    type: StringNullableFilter,
   })
-  @Type(() => StringFilter)
+  @Type(() => StringNullableFilter)
   @IsOptional()
-  @Field(() => StringFilter, {
+  @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  id?: StringFilter;
+  tickerSymbol?: StringNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -70,17 +69,6 @@ class StockWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  tickerSymbol?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
     type: IntNullableFilter,
   })
   @Type(() => IntNullableFilter)
@@ -89,6 +77,18 @@ class StockWhereInput {
     nullable: true,
   })
   totalShares?: IntNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => CompanyWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CompanyWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CompanyWhereUniqueInput, {
+    nullable: true,
+  })
+  company?: CompanyWhereUniqueInput;
 }
 
 export { StockWhereInput as StockWhereInput };

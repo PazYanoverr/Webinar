@@ -18,38 +18,38 @@ import { StockService } from "../stock.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
-  createdAt: new Date(),
   id: "exampleId",
-  sharePrice: 42.42,
-  tickerSymbol: "exampleTickerSymbol",
-  totalShares: 42,
+  createdAt: new Date(),
   updatedAt: new Date(),
+  tickerSymbol: "exampleTickerSymbol",
+  sharePrice: 42.42,
+  totalShares: 42,
 };
 const CREATE_RESULT = {
-  createdAt: new Date(),
   id: "exampleId",
-  sharePrice: 42.42,
-  tickerSymbol: "exampleTickerSymbol",
-  totalShares: 42,
+  createdAt: new Date(),
   updatedAt: new Date(),
+  tickerSymbol: "exampleTickerSymbol",
+  sharePrice: 42.42,
+  totalShares: 42,
 };
 const FIND_MANY_RESULT = [
   {
-    createdAt: new Date(),
     id: "exampleId",
-    sharePrice: 42.42,
-    tickerSymbol: "exampleTickerSymbol",
-    totalShares: 42,
+    createdAt: new Date(),
     updatedAt: new Date(),
+    tickerSymbol: "exampleTickerSymbol",
+    sharePrice: 42.42,
+    totalShares: 42,
   },
 ];
 const FIND_ONE_RESULT = {
-  createdAt: new Date(),
   id: "exampleId",
-  sharePrice: 42.42,
-  tickerSymbol: "exampleTickerSymbol",
-  totalShares: 42,
+  createdAt: new Date(),
   updatedAt: new Date(),
+  tickerSymbol: "exampleTickerSymbol",
+  sharePrice: 42.42,
+  totalShares: 42,
 };
 
 const service = {

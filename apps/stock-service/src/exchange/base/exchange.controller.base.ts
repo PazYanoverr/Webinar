@@ -54,11 +54,11 @@ export class ExchangeControllerBase {
     return await this.service.createExchange({
       data: data,
       select: {
-        address: true,
-        createdAt: true,
         id: true,
-        name: true,
+        createdAt: true,
         updatedAt: true,
+        address: true,
+        name: true,
       },
     });
   }
@@ -80,11 +80,11 @@ export class ExchangeControllerBase {
     return this.service.exchanges({
       ...args,
       select: {
-        address: true,
-        createdAt: true,
         id: true,
-        name: true,
+        createdAt: true,
         updatedAt: true,
+        address: true,
+        name: true,
       },
     });
   }
@@ -107,11 +107,11 @@ export class ExchangeControllerBase {
     const result = await this.service.exchange({
       where: params,
       select: {
-        address: true,
-        createdAt: true,
         id: true,
-        name: true,
+        createdAt: true,
         updatedAt: true,
+        address: true,
+        name: true,
       },
     });
     if (result === null) {
@@ -143,11 +143,11 @@ export class ExchangeControllerBase {
         where: params,
         data: data,
         select: {
-          address: true,
-          createdAt: true,
           id: true,
-          name: true,
+          createdAt: true,
           updatedAt: true,
+          address: true,
+          name: true,
         },
       });
     } catch (error) {
@@ -178,11 +178,11 @@ export class ExchangeControllerBase {
       return await this.service.deleteExchange({
         where: params,
         select: {
-          address: true,
-          createdAt: true,
           id: true,
-          name: true,
+          createdAt: true,
           updatedAt: true,
+          address: true,
+          name: true,
         },
       });
     } catch (error) {
@@ -211,13 +211,9 @@ export class ExchangeControllerBase {
     const results = await this.service.findStocks(params.id, {
       ...query,
       select: {
-        company: {
-          select: {
-            id: true,
-          },
-        },
-
+        id: true,
         createdAt: true,
+        updatedAt: true,
 
         exchange: {
           select: {
@@ -225,11 +221,15 @@ export class ExchangeControllerBase {
           },
         },
 
-        id: true,
-        sharePrice: true,
         tickerSymbol: true,
+        sharePrice: true,
         totalShares: true,
-        updatedAt: true,
+
+        company: {
+          select: {
+            id: true,
+          },
+        },
       },
     });
     if (results === null) {

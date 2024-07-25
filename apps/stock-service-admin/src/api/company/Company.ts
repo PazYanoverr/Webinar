@@ -1,11 +1,11 @@
 import { Stock } from "../stock/Stock";
 
 export type Company = {
-  createdAt: Date;
-  domain: string | null;
-  headquarters: string | null;
   id: string;
-  name: string | null;
-  stocks?: Array<Stock>;
+  createdAt: Date;
   updatedAt: Date;
+  name: string | null;
+  headquarters: string | null;
+  stocks?: Array<Stock>;
+  domain: string | null;
 };

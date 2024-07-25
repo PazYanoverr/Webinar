@@ -11,28 +11,32 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { Company } from "../../company/base/Company";
+
 import {
+  IsString,
+  IsDate,
   ValidateNested,
   IsOptional,
-  IsDate,
-  IsString,
+  MaxLength,
   IsNumber,
+  Min,
+  Max,
   IsInt,
 } from "class-validator";
+
 import { Type } from "class-transformer";
 import { Exchange } from "../../exchange/base/Exchange";
+import { Company } from "../../company/base/Company";
 
 @ObjectType()
 class Stock {
   @ApiProperty({
-    required: false,
-    type: () => Company,
+    required: true,
+    type: String,
   })
-  @ValidateNested()
-  @Type(() => Company)
-  @IsOptional()
-  company?: Company | null;
+  @IsString()
+  @Field(() => String)
+  id!: string;
 
   @ApiProperty({
     required: true,
@@ -41,6 +45,14 @@ class Stock {
   @Type(() => Date)
   @Field(() => Date)
   createdAt!: Date;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsDate()
+  @Type(() => Date)
+  @Field(() => Date)
+  updatedAt!: Date;
 
   @ApiProperty({
     required: false,
@@ -52,29 +64,11 @@ class Stock {
   exchange?: Exchange | null;
 
   @ApiProperty({
-    required: true,
-    type: String,
-  })
-  @IsString()
-  @Field(() => String)
-  id!: string;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  sharePrice!: number | null;
-
-  @ApiProperty({
     required: false,
     type: String,
   })
   @IsString()
+  @MaxLength(1000)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -85,7 +79,21 @@ class Stock {
     required: false,
     type: Number,
   })
+  @IsNumber()
+  @Min(-999999999)
+  @Max(999999999)
+  @IsOptional()
+  @Field(() => Number, {
+    nullable: true,
+  })
+  sharePrice!: number | null;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
   @IsInt()
+  @Max(99999999999)
   @IsOptional()
   @Field(() => Number, {
     nullable: true,
@@ -93,12 +101,13 @@ class Stock {
   totalShares!: number | null;
 
   @ApiProperty({
-    required: true,
+    required: false,
+    type: () => Company,
   })
-  @IsDate()
-  @Type(() => Date)
-  @Field(() => Date)
-  updatedAt!: Date;
+  @ValidateNested()
+  @Type(() => Company)
+  @IsOptional()
+  company?: Company | null;
 }
 
 export { Stock as Stock };

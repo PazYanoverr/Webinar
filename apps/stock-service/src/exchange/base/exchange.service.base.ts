@@ -23,28 +23,28 @@ export class ExchangeServiceBase {
     return this.prisma.exchange.count(args);
   }
 
-  async exchanges<T extends Prisma.ExchangeFindManyArgs>(
-    args: Prisma.SelectSubset<T, Prisma.ExchangeFindManyArgs>
+  async exchanges(
+    args: Prisma.ExchangeFindManyArgs
   ): Promise<PrismaExchange[]> {
-    return this.prisma.exchange.findMany<Prisma.ExchangeFindManyArgs>(args);
+    return this.prisma.exchange.findMany(args);
   }
-  async exchange<T extends Prisma.ExchangeFindUniqueArgs>(
-    args: Prisma.SelectSubset<T, Prisma.ExchangeFindUniqueArgs>
+  async exchange(
+    args: Prisma.ExchangeFindUniqueArgs
   ): Promise<PrismaExchange | null> {
     return this.prisma.exchange.findUnique(args);
   }
-  async createExchange<T extends Prisma.ExchangeCreateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.ExchangeCreateArgs>
+  async createExchange(
+    args: Prisma.ExchangeCreateArgs
   ): Promise<PrismaExchange> {
-    return this.prisma.exchange.create<T>(args);
+    return this.prisma.exchange.create(args);
   }
-  async updateExchange<T extends Prisma.ExchangeUpdateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.ExchangeUpdateArgs>
+  async updateExchange(
+    args: Prisma.ExchangeUpdateArgs
   ): Promise<PrismaExchange> {
-    return this.prisma.exchange.update<T>(args);
+    return this.prisma.exchange.update(args);
   }
-  async deleteExchange<T extends Prisma.ExchangeDeleteArgs>(
-    args: Prisma.SelectSubset<T, Prisma.ExchangeDeleteArgs>
+  async deleteExchange(
+    args: Prisma.ExchangeDeleteArgs
   ): Promise<PrismaExchange> {
     return this.prisma.exchange.delete(args);
   }

@@ -1,15 +1,15 @@
-import { CompanyWhereUniqueInput } from "../company/CompanyWhereUniqueInput";
-import { ExchangeWhereUniqueInput } from "../exchange/ExchangeWhereUniqueInput";
 import { StringFilter } from "../../util/StringFilter";
-import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { ExchangeWhereUniqueInput } from "../exchange/ExchangeWhereUniqueInput";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
 import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { CompanyWhereUniqueInput } from "../company/CompanyWhereUniqueInput";
 
 export type StockWhereInput = {
-  company?: CompanyWhereUniqueInput;
-  exchange?: ExchangeWhereUniqueInput;
   id?: StringFilter;
-  sharePrice?: FloatNullableFilter;
+  exchange?: ExchangeWhereUniqueInput;
   tickerSymbol?: StringNullableFilter;
+  sharePrice?: FloatNullableFilter;
   totalShares?: IntNullableFilter;
+  company?: CompanyWhereUniqueInput;
 };

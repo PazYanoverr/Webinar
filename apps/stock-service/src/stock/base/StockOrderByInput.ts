@@ -28,7 +28,7 @@ class StockOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  companyId?: SortOrder;
+  id?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -50,29 +50,18 @@ class StockOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  updatedAt?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   exchangeId?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  id?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  sharePrice?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -94,6 +83,17 @@ class StockOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  sharePrice?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   totalShares?: SortOrder;
 
   @ApiProperty({
@@ -105,7 +105,7 @@ class StockOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  updatedAt?: SortOrder;
+  companyId?: SortOrder;
 }
 
 export { StockOrderByInput as StockOrderByInput };

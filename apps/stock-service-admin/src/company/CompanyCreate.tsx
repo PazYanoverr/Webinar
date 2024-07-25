@@ -15,9 +15,8 @@ export const CompanyCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
-        <TextInput label="Domain" source="domain" />
-        <TextInput label="Headquarters" multiline source="headquarters" />
         <TextInput label="Name" source="name" />
+        <TextInput label="Headquarters" multiline source="headquarters" />
         <ReferenceArrayInput
           source="stocks"
           reference="Stock"
@@ -26,6 +25,7 @@ export const CompanyCreate = (props: CreateProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={StockTitle} />
         </ReferenceArrayInput>
+        <TextInput label="Domain" source="domain" />
       </SimpleForm>
     </Create>
   );

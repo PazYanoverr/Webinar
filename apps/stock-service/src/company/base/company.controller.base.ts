@@ -55,12 +55,12 @@ export class CompanyControllerBase {
     return await this.service.createCompany({
       data: data,
       select: {
-        createdAt: true,
-        domain: true,
-        headquarters: true,
         id: true,
-        name: true,
+        createdAt: true,
         updatedAt: true,
+        name: true,
+        headquarters: true,
+        domain: true,
       },
     });
   }
@@ -82,12 +82,12 @@ export class CompanyControllerBase {
     return this.service.companies({
       ...args,
       select: {
-        createdAt: true,
-        domain: true,
-        headquarters: true,
         id: true,
-        name: true,
+        createdAt: true,
         updatedAt: true,
+        name: true,
+        headquarters: true,
+        domain: true,
       },
     });
   }
@@ -110,12 +110,12 @@ export class CompanyControllerBase {
     const result = await this.service.company({
       where: params,
       select: {
-        createdAt: true,
-        domain: true,
-        headquarters: true,
         id: true,
-        name: true,
+        createdAt: true,
         updatedAt: true,
+        name: true,
+        headquarters: true,
+        domain: true,
       },
     });
     if (result === null) {
@@ -147,12 +147,12 @@ export class CompanyControllerBase {
         where: params,
         data: data,
         select: {
-          createdAt: true,
-          domain: true,
-          headquarters: true,
           id: true,
-          name: true,
+          createdAt: true,
           updatedAt: true,
+          name: true,
+          headquarters: true,
+          domain: true,
         },
       });
     } catch (error) {
@@ -183,12 +183,12 @@ export class CompanyControllerBase {
       return await this.service.deleteCompany({
         where: params,
         select: {
-          createdAt: true,
-          domain: true,
-          headquarters: true,
           id: true,
-          name: true,
+          createdAt: true,
           updatedAt: true,
+          name: true,
+          headquarters: true,
+          domain: true,
         },
       });
     } catch (error) {
@@ -217,13 +217,9 @@ export class CompanyControllerBase {
     const results = await this.service.findStocks(params.id, {
       ...query,
       select: {
-        company: {
-          select: {
-            id: true,
-          },
-        },
-
+        id: true,
         createdAt: true,
+        updatedAt: true,
 
         exchange: {
           select: {
@@ -231,11 +227,15 @@ export class CompanyControllerBase {
           },
         },
 
-        id: true,
-        sharePrice: true,
         tickerSymbol: true,
+        sharePrice: true,
         totalShares: true,
-        updatedAt: true,
+
+        company: {
+          select: {
+            id: true,
+          },
+        },
       },
     });
     if (results === null) {

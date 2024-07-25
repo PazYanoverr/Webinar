@@ -1,13 +1,13 @@
-import { Company } from "../company/Company";
 import { Exchange } from "../exchange/Exchange";
+import { Company } from "../company/Company";
 
 export type Stock = {
-  company?: Company | null;
-  createdAt: Date;
-  exchange?: Exchange | null;
   id: string;
-  sharePrice: number | null;
-  tickerSymbol: string | null;
-  totalShares: number | null;
+  createdAt: Date;
   updatedAt: Date;
+  exchange?: Exchange | null;
+  tickerSymbol: string | null;
+  sharePrice: number | null;
+  totalShares: number | null;
+  company?: Company | null;
 };
